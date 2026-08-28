@@ -18,6 +18,12 @@ Open `http://localhost:3000`.
 - AI recipe generation through `app/api/generate-recipe/route.ts`
 - Ingredient quick-pick chips
 - Servings, cooking time, cuisine, diet, and difficulty controls
+- Meal type control for breakfast, lunch, dinner, or snack recipes
+- Active ingredient tags with one-click removal
+- Smart pantry add-on suggestions
+- Shopping checklist generated from entered ingredients
+- Meal planner summary for the current recipe
+- Lightweight nutrition estimate for generated recipes
 - Recent recipe history saved in local storage
 - Favorite recipes saved in local storage
 - Copy, download, and print actions for generated recipes
@@ -45,9 +51,16 @@ components/
   AppFooter.tsx
   AppNav.tsx
   HeroSection.tsx
+  IngredientManager.tsx
+  MealPlanner.tsx
+  NutritionEstimate.tsx
+  PantrySuggestions.tsx
   RecipeForm.tsx
   RecipePreview.tsx
   RecipeSidebar.tsx
+  ShoppingList.tsx
+hooks/
+  useRecipeApp.ts
 lib/
   local-recipes.ts
   recipe-data.ts
