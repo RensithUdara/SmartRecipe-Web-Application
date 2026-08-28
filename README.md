@@ -46,6 +46,7 @@ Express server is needed.
 - 🖨️ **Print-friendly recipe view**
 - 📱 **Responsive UI** for desktop, tablet, and mobile
 - 🎨 **Custom logo support** using `public/logo.png`
+- 🧭 **Multiple web pages** for About, Recipes, Planner, and Tips
 
 ---
 
@@ -162,6 +163,8 @@ Runs ESLint for code quality checks.
 ```text
 SmartRecipeAI-main/
   app/
+    about/
+      page.tsx
     api/
       generate-recipe/
         route.ts
@@ -171,25 +174,37 @@ SmartRecipeAI-main/
     loading.tsx
     not-found.tsx
     page.tsx
+    planner/
+      page.tsx
+    recipes/
+      page.tsx
+    tips/
+      page.tsx
 
   components/
     AppFooter.tsx
     AppNav.tsx
+    FeatureGrid.tsx
     HeroSection.tsx
     IngredientManager.tsx
     MealPlanner.tsx
     NutritionEstimate.tsx
+    PageHeader.tsx
     PantrySuggestions.tsx
     RecipeForm.tsx
     RecipePreview.tsx
     RecipeSidebar.tsx
+    SampleRecipes.tsx
+    SavedRecipesView.tsx
     ShoppingList.tsx
+    WeeklyPlanner.tsx
 
   hooks/
     useRecipeApp.ts
 
   lib/
     local-recipes.ts
+    page-data.ts
     recipe-data.ts
     recipe-utils.ts
 
@@ -252,6 +267,8 @@ Successful response:
 | Component | Purpose |
 | --- | --- |
 | `AppNav.tsx` | Top navigation with logo |
+| `PageHeader.tsx` | Shared header for secondary pages |
+| `FeatureGrid.tsx` | Feature cards for the About page |
 | `HeroSection.tsx` | Hero area and food image |
 | `RecipeForm.tsx` | Ingredient input and recipe preferences |
 | `IngredientManager.tsx` | Removable ingredient tags |
@@ -261,6 +278,9 @@ Successful response:
 | `NutritionEstimate.tsx` | Estimated nutrition cards |
 | `RecipePreview.tsx` | Generated recipe display and actions |
 | `RecipeSidebar.tsx` | Recent recipes, favorites, and tips |
+| `SavedRecipesView.tsx` | Full saved recipe library page |
+| `WeeklyPlanner.tsx` | Full weekly planner page |
+| `SampleRecipes.tsx` | Example recipe cards for the Tips page |
 | `AppFooter.tsx` | Footer branding |
 
 ---
