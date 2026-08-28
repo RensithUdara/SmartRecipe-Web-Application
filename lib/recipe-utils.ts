@@ -47,3 +47,30 @@ export function copyRecipe(recipe: string) {
   const plainRecipe = recipe.replace(/<br>/g, "\n").replace(/<\/?b>/g, "");
   return navigator.clipboard.writeText(plainRecipe);
 }
+
+export function createShoppingList(ingredients: string) {
+  return getIngredientsList(ingredients).map((ingredient) => ({
+    id: ingredient.toLowerCase().replace(/\s+/g, "-"),
+    name: ingredient,
+    checked: false,
+  }));
+}
+
+export function estimateNutrition(ingredients: string, servings: number) {
+  const count = Math.max(getIngredientsList(ingredients).length, 1);
+  const servingCount = Math.max(servings, 1);
+
+  return {
+    calories: Math.round((count * 95 + servingCount * 80) / servingCount),
+    protein: Math.round((count * 4 + servingCount * 3) / servingCount),
+    prepScore: Math.min(100, 50 + count * 6),
+  };
+}
+
+export function getMealPlanLabel(date = new Date()) {
+  return date.toLocaleDateString(undefined, {
+    weekday: "long",
+    month: "short",
+    day: "numeric",
+  });
+}
