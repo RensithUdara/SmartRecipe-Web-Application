@@ -1736,11 +1736,82 @@ button:disabled {
 }
 
 .mini-card {
-  min-height: 150px;
+  position: relative;
+  min-height: 270px;
+  overflow: hidden;
 }
 
-.mini-card h3 {
-  font-size: 17px;
+.mini-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -36px -60px auto;
+  width: 170px;
+  height: 170px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--red) 8%, transparent);
+  pointer-events: none;
+}
+
+.mini-card-heading {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 18px;
+}
+
+.mini-card-heading h3 {
+  margin: 0;
+  color: var(--heading);
+  font-size: 21px;
+  line-height: 1.1;
+}
+
+.mini-card-heading p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.mini-icon {
+  display: grid;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 12px;
+}
+
+.mini-icon.red {
+  background: color-mix(in srgb, var(--red) 12%, var(--surface-solid));
+  color: var(--red);
+}
+
+.mini-icon.blue {
+  background: color-mix(in srgb, var(--blue) 12%, var(--surface-solid));
+  color: var(--blue);
+}
+
+.mini-icon.green {
+  background: color-mix(in srgb, var(--green) 12%, var(--surface-solid));
+  color: var(--green);
+}
+
+.addon-card {
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--red) 4%, var(--surface-solid)), var(--surface));
+}
+
+.checklist-card {
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--blue) 5%, var(--surface-solid)), var(--surface));
+}
+
+.meal-card {
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--green) 5%, var(--surface-solid)), var(--surface));
 }
 
 .suggestion-list,
@@ -1752,41 +1823,134 @@ button:disabled {
 }
 
 .suggestion-list button {
+  position: relative;
+  z-index: 1;
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 48px;
-  padding: 10px 12px;
-  border-radius: 10px;
-  background: var(--surface-soft);
+  gap: 14px;
+  min-height: 58px;
+  padding: 12px 14px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--orange) 7%, var(--surface-solid));
   color: var(--muted);
+  cursor: pointer;
   text-align: left;
+  transition: transform 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.suggestion-list button:hover {
+  border-color: color-mix(in srgb, var(--red) 34%, var(--border));
+  color: var(--red);
+  transform: translateY(-1px);
 }
 
 .suggestion-list strong {
   display: block;
   color: var(--heading);
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .suggestion-list span {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
 }
 
+.add-chip {
+  display: grid;
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--surface-solid);
+  color: var(--red);
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--red) 12%, transparent);
+}
+
 .shopping-list label {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
-  gap: 9px;
-  min-height: 32px;
+  gap: 11px;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--surface-solid) 78%, transparent);
   color: var(--muted);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 800;
 }
 
 .shopping-list input {
-  width: 16px;
-  height: 16px;
+  position: absolute;
+  opacity: 0;
+}
+
+.shopping-list label svg {
+  width: 22px;
+  height: 22px;
+  color: var(--muted);
+}
+
+.shopping-list input:checked + svg {
+  color: var(--green);
+  fill: color-mix(in srgb, var(--green) 18%, transparent);
+}
+
+.shopping-list input:checked + svg + span {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.shopping-list input:focus-visible + svg {
+  outline: 3px solid color-mix(in srgb, var(--red) 18%, transparent);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+.shopping-list input {
+  width: 1px;
+  height: 1px;
   accent-color: var(--red);
+}
+
+.meal-empty-state {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: 165px;
+  place-items: center;
+  padding: 22px;
+  border: 1px dashed color-mix(in srgb, var(--green) 28%, var(--border));
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--surface-solid) 72%, transparent);
+  text-align: center;
+}
+
+.meal-empty-state svg {
+  color: var(--green);
+}
+
+.meal-empty-state p {
+  max-width: 270px;
+  margin: 10px 0 14px;
+  color: var(--muted);
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.meal-empty-state a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
 }
 
 .nutrition-grid {
