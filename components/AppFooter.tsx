@@ -17,7 +17,7 @@ export function AppFooter() {
         <div className="footer-brand">
           <Image src="/logo.png" width={48} height={48} alt="" />
           <div>
-            <strong>Smart Recipe AI</strong>
+            <strong>Smart Recipe</strong>
             <span>Cook smarter. Waste less. Eat better.</span>
           </div>
         </div>

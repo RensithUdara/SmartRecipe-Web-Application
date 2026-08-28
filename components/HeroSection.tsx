@@ -45,7 +45,7 @@ export function HeroSection() {
           src="/generator-bg.png"
           width={1800}
           height={900}
-          alt="Pasta bowl with Smart Recipe AI highlights for simple ingredients, quick recipes, and delicious results"
+          alt="Pasta bowl with Smart Recipe highlights for simple ingredients, quick recipes, and delicious results"
           priority
           sizes="(max-width: 760px) 100vw, 52vw"
         />

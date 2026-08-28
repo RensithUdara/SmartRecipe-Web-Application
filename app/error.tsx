@@ -10,7 +10,7 @@ export default function Error({
     <main className="page-shell">
       <section className="app-container" aria-label="Application error">
         <header className="header">
-          <h1>Smart Recipe AI</h1>
+          <h1>Smart Recipe</h1>
           <p>Your personal pocket chef</p>
         </header>
         <div className="content">

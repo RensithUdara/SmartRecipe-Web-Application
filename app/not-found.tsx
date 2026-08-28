@@ -5,7 +5,7 @@ export default function NotFound() {
     <main className="page-shell">
       <section className="app-container" aria-label="Page not found">
         <header className="header">
-          <h1>Smart Recipe AI</h1>
+          <h1>Smart Recipe</h1>
           <p>Your personal pocket chef</p>
         </header>
         <div className="content">

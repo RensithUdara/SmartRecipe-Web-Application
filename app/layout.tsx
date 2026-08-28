@@ -3,7 +3,7 @@ import { ThemeScript } from "@/components/ThemeScript";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Smart Recipe AI",
+  title: "Smart Recipe",
   description: "A pocket recipe generator powered by Gemini.",
   icons: {
     icon: "/favicon.svg",

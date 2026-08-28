@@ -20,11 +20,11 @@ export function AppNav() {
 
   return (
     <nav className="topbar" aria-label="Main navigation">
-      <Link className="brand" href="/" aria-label="Smart Recipe AI home">
+      <Link className="brand" href="/" aria-label="Smart Recipe home">
         <span className="brand-mark image-mark">
           <Image src="/logo.png" width={40} height={40} alt="" priority />
         </span>
-        <span>Smart Recipe AI</span>
+        <span>Smart Recipe</span>
       </Link>
 
       <div className="nav-actions">

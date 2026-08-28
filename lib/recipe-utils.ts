@@ -31,7 +31,7 @@ export function downloadRecipe(record: RecipeRecord) {
   const plainRecipe = record.recipe.replace(/<br>/g, "\n").replace(/<\/?b>/g, "");
   const file = new Blob(
     [
-      `Smart Recipe AI\n\nIngredients: ${record.ingredients}\nServings: ${record.options.servings}\nTime: ${record.options.maxTime}\nCuisine: ${record.options.cuisine}\nDiet: ${record.options.diet}\nDifficulty: ${record.options.difficulty}\n\n${plainRecipe}`,
+      `Smart Recipe\n\nIngredients: ${record.ingredients}\nServings: ${record.options.servings}\nTime: ${record.options.maxTime}\nCuisine: ${record.options.cuisine}\nDiet: ${record.options.diet}\nDifficulty: ${record.options.difficulty}\n\n${plainRecipe}`,
     ],
     { type: "text/plain" },
   );
