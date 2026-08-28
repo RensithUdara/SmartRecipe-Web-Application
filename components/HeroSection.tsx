@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Clock3, FileText, Heart, Leaf, Sparkles, Zap } from "lucide-react";
+import { Clock3, FileText, Sparkles } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -39,33 +39,16 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="hero-art" aria-label="Pasta recipe preview">
-        <p className="hand-note">Good Food Happier Days!</p>
+      <div className="hero-art" aria-label="Smart recipe generator preview">
         <Image
-          className="pasta-image"
-          src="/pasta.jpg"
-          width={380}
-          height={380}
-          alt="A bowl of pasta with tomato sauce and herbs"
+          className="generator-image"
+          src="/generator-bg.png"
+          width={1800}
+          height={900}
+          alt="Pasta bowl with Smart Recipe AI highlights for simple ingredients, quick recipes, and delicious results"
           priority
+          sizes="(max-width: 760px) 100vw, 52vw"
         />
-        <Leaf className="floating-leaf" size={44} />
-        <span className="accent-mark" aria-hidden="true" />
-
-        <div className="feature-stack">
-          <div>
-            <Leaf size={22} />
-            <span>Simple ingredients</span>
-          </div>
-          <div>
-            <Zap size={22} />
-            <span>Quick recipes</span>
-          </div>
-          <div>
-            <Heart size={22} />
-            <span>Delicious results</span>
-          </div>
-        </div>
       </div>
     </section>
   );
