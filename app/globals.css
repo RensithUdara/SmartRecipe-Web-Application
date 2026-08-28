@@ -97,7 +97,7 @@ a {
 .page-shell {
   display: flex;
   flex-direction: column;
-  width: min(1450px, calc(100% - 28px));
+  width: min(1680px, calc(100% - 24px));
   min-height: 100vh;
   margin: 0 auto;
   padding: 18px 0 22px;
@@ -2464,7 +2464,7 @@ button:disabled {
 
 @media (max-width: 760px) {
   .page-shell {
-    width: min(100% - 18px, 1450px);
+    width: min(100% - 18px, 1680px);
     padding-top: 9px;
   }
 
