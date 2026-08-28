@@ -19,70 +19,72 @@ export default function Home() {
   return (
     <main className="page-shell">
       <AppNav />
-      <HeroSection />
+      <div className="page-content">
+        <HeroSection />
 
-      <section className="content-grid" id="generator">
-        <div className="main-column">
-          <RecipeForm
-            ingredients={recipeApp.ingredients}
-            ingredientCount={recipeApp.ingredientCount}
-            isLoading={recipeApp.isLoading}
-            options={recipeApp.options}
-            onIngredientsChange={recipeApp.setIngredients}
-            onOptionChange={recipeApp.updateOption}
-            onQuickPick={recipeApp.addQuickIngredient}
-            onSubmit={recipeApp.generateRecipe}
-          />
-
-          <IngredientManager
-            ingredients={recipeApp.ingredients}
-            onRemoveIngredient={recipeApp.removeIngredient}
-          />
-
-          <div className="insight-grid">
-            <PantrySuggestions
+        <section className="content-grid" id="generator">
+          <div className="main-column">
+            <RecipeForm
               ingredients={recipeApp.ingredients}
-              onAddIngredient={recipeApp.addQuickIngredient}
+              ingredientCount={recipeApp.ingredientCount}
+              isLoading={recipeApp.isLoading}
+              options={recipeApp.options}
+              onIngredientsChange={recipeApp.setIngredients}
+              onOptionChange={recipeApp.updateOption}
+              onQuickPick={recipeApp.addQuickIngredient}
+              onSubmit={recipeApp.generateRecipe}
             />
-            <ShoppingList ingredients={recipeApp.ingredients} />
-            <MealPlanner recipe={recipeApp.currentRecipe} />
+
+            <IngredientManager
+              ingredients={recipeApp.ingredients}
+              onRemoveIngredient={recipeApp.removeIngredient}
+            />
+
+            <div className="insight-grid">
+              <PantrySuggestions
+                ingredients={recipeApp.ingredients}
+                onAddIngredient={recipeApp.addQuickIngredient}
+              />
+              <ShoppingList ingredients={recipeApp.ingredients} />
+              <MealPlanner recipe={recipeApp.currentRecipe} />
+            </div>
+
+            {recipeApp.isLoading ? (
+              <div className="loading-card" role="status">
+                <div className="loader" aria-hidden="true" />
+                <span>Building a recipe from your ingredients...</span>
+              </div>
+            ) : null}
+
+            {recipeApp.error ? (
+              <p className="error-message">{recipeApp.error}</p>
+            ) : null}
+
+            {recipeApp.notice ? (
+              <p className="notice-message">{recipeApp.notice}</p>
+            ) : null}
+
+            <RecipePreview
+              currentRecipe={recipeApp.currentRecipe}
+              isFavorite={recipeApp.isFavorite}
+              onCopy={recipeApp.handleCopyRecipe}
+              onDownload={recipeApp.handleDownloadRecipe}
+              onPrint={recipeApp.handlePrintRecipe}
+              onToggleFavorite={recipeApp.toggleFavorite}
+            />
           </div>
 
-          {recipeApp.isLoading ? (
-            <div className="loading-card" role="status">
-              <div className="loader" aria-hidden="true" />
-              <span>Building a recipe from your ingredients...</span>
-            </div>
-          ) : null}
-
-          {recipeApp.error ? (
-            <p className="error-message">{recipeApp.error}</p>
-          ) : null}
-
-          {recipeApp.notice ? (
-            <p className="notice-message">{recipeApp.notice}</p>
-          ) : null}
-
-          <RecipePreview
-            currentRecipe={recipeApp.currentRecipe}
-            isFavorite={recipeApp.isFavorite}
-            onCopy={recipeApp.handleCopyRecipe}
-            onDownload={recipeApp.handleDownloadRecipe}
-            onPrint={recipeApp.handlePrintRecipe}
-            onToggleFavorite={recipeApp.toggleFavorite}
-          />
-        </div>
-
-        <div className="side-column">
-          <RecipeSidebar
-            history={recipeApp.history}
-            favorites={recipeApp.favorites}
-            onSelectRecipe={recipeApp.showRecipe}
-            onClearHistory={recipeApp.clearHistory}
-          />
-          <NutritionEstimate recipe={recipeApp.currentRecipe} />
-        </div>
-      </section>
+          <div className="side-column">
+            <RecipeSidebar
+              history={recipeApp.history}
+              favorites={recipeApp.favorites}
+              onSelectRecipe={recipeApp.showRecipe}
+              onClearHistory={recipeApp.clearHistory}
+            />
+            <NutritionEstimate recipe={recipeApp.currentRecipe} />
+          </div>
+        </section>
+      </div>
 
       <AppFooter />
     </main>
