@@ -95,6 +95,8 @@ a {
 }
 
 .page-shell {
+  display: flex;
+  flex-direction: column;
   width: min(1450px, calc(100% - 28px));
   min-height: 100vh;
   margin: 0 auto;
@@ -1220,23 +1222,97 @@ button:disabled {
 }
 
 .footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 20px 0 0;
+  display: grid;
+  gap: 18px;
+  margin-top: auto;
+  padding: 26px 28px 22px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
   color: var(--muted);
   font-size: 13px;
 }
 
-.footer div {
+.footer-main,
+.footer-brand,
+.footer-links,
+.footer-actions,
+.footer-bottom {
   display: flex;
   align-items: center;
+}
+
+.footer-main,
+.footer-bottom {
+  justify-content: space-between;
   gap: 18px;
+}
+
+.footer-brand {
+  gap: 13px;
+}
+
+.footer-brand img {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+}
+
+.footer-brand div {
+  display: grid;
+  gap: 4px;
 }
 
 .footer strong {
   color: var(--heading);
+  font-size: 16px;
+}
+
+.footer-links {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.footer-links a {
+  padding: 9px 12px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  background: color-mix(in srgb, var(--red) 12%, transparent);
+  color: var(--red);
+}
+
+.footer-actions {
+  gap: 8px;
+}
+
+.footer-actions a {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--muted-strong);
+}
+
+.footer-bottom {
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-bottom span:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--red);
+  font-weight: 900;
 }
 
 .loader {
@@ -1409,9 +1485,17 @@ button:disabled {
     justify-content: flex-start;
   }
 
-  .footer,
-  .footer div {
+  .footer-main,
+  .footer-bottom,
+  .footer-brand,
+  .footer-links,
+  .footer-actions {
     display: grid;
+    justify-content: start;
+  }
+
+  .footer {
+    padding: 20px;
   }
 }
 
