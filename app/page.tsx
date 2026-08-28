@@ -11,7 +11,7 @@ import {
   FileText,
   Heart,
   History,
-  Home,
+  Home as HomeIcon,
   Leaf,
   Lightbulb,
   List,
@@ -154,7 +154,7 @@ export default function Home() {
 
         <div className="nav-actions">
           <a className="nav-pill active" href="#generator">
-            <Home size={17} />
+            <HomeIcon size={17} />
             <span>Generator</span>
           </a>
           <a className="nav-pill" href="#history">
