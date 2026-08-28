@@ -1275,7 +1275,7 @@ a {
 }
 
 .generator-image {
-  width: min(58vw, 850px);
+  width: min(52vw, 760px);
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 28px 80px rgba(125, 77, 34, 0.18));
@@ -2565,7 +2565,7 @@ button:disabled {
   }
 
   .generator-image {
-    width: min(94vw, 820px);
+    width: min(88vw, 720px);
   }
 
   .pasta-image {
@@ -2945,7 +2945,7 @@ button:disabled {
   }
 
   .generator-image {
-    width: min(100%, 620px);
+    width: min(96%, 540px);
   }
 
   .pasta-image {
