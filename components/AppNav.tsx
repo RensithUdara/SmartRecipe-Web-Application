@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { BookOpen, CalendarDays, History, Home, Info, Sun } from "lucide-react";
+import { BookOpen, CalendarDays, History, Home, Info, Moon, Sun } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useTheme } from "@/hooks/useTheme";
 
 const NAV_ITEMS = [
   { href: "/", label: "Generator", icon: Home },
@@ -15,6 +16,7 @@ const NAV_ITEMS = [
 
 export function AppNav() {
   const pathname = usePathname();
+  const { isDark, toggleTheme } = useTheme();
 
   return (
     <nav className="topbar" aria-label="Main navigation">
@@ -41,8 +43,14 @@ export function AppNav() {
             </Link>
           );
         })}
-        <button className="icon-button" type="button" aria-label="Theme">
-          <Sun size={18} />
+        <button
+          className="icon-button"
+          type="button"
+          aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+          title={isDark ? "Switch to light theme" : "Switch to dark theme"}
+          onClick={toggleTheme}
+        >
+          {isDark ? <Sun size={18} /> : <Moon size={18} />}
         </button>
       </div>
     </nav>
