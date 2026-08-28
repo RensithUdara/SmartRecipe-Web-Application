@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { GithubIcon, Mail, Sparkles } from "lucide-react";
+import { GitBranch, Mail, Sparkles } from "lucide-react";
 
 const FOOTER_LINKS = [
   { href: "/", label: "Generator" },
@@ -35,7 +35,7 @@ export function AppFooter() {
             <Mail size={17} />
           </a>
           <a href="https://github.com" aria-label="GitHub">
-            <GithubIcon size={17} />
+            <GitBranch size={17} />
           </a>
         </div>
       </div>
