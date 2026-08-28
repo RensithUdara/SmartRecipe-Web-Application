@@ -10,6 +10,7 @@ import {
   CUISINE_OPTIONS,
   DIET_OPTIONS,
   DIFFICULTY_OPTIONS,
+  MEAL_TYPE_OPTIONS,
   QUICK_INGREDIENTS,
   TIME_OPTIONS,
 } from "@/lib/recipe-data";
@@ -136,6 +137,19 @@ export function RecipeForm({
                 onChange={(event) => onOptionChange("diet", event.target.value)}
               >
                 {DIET_OPTIONS.map((option) => (
+                  <option key={option}>{option}</option>
+                ))}
+              </select>
+            </label>
+            <label>
+              Meal
+              <select
+                value={options.mealType}
+                onChange={(event) =>
+                  onOptionChange("mealType", event.target.value)
+                }
+              >
+                {MEAL_TYPE_OPTIONS.map((option) => (
                   <option key={option}>{option}</option>
                 ))}
               </select>
