@@ -15,7 +15,7 @@ export function RecipeSidebar({
   onClearHistory,
 }: RecipeSidebarProps) {
   return (
-    <aside className="side-column">
+    <>
       <section className="recent-card" id="history">
         <div className="side-heading">
           <h2>
@@ -83,7 +83,7 @@ export function RecipeSidebar({
           </li>
         </ul>
       </section>
-    </aside>
+    </>
   );
 }
 
