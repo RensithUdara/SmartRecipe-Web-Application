@@ -60,6 +60,7 @@ Maximum cooking time: ${options.maxTime}.
 Preferred cuisine: ${options.cuisine}.
 Diet preference: ${options.diet}.
 Difficulty level: ${options.difficulty}.
+Meal type: ${options.mealType}.
 IMPORTANT RULE: If the ingredients are provided in Sinhala, or if the user explicitly asks in Sinhala, write the entire recipe in Sinhala. Otherwise, write it in English.
 Format the answer with:
 **Recipe Name**
