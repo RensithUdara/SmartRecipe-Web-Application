@@ -1,4 +1,4 @@
-import { Plus } from "lucide-react";
+import { Plus, Sparkles } from "lucide-react";
 import { PANTRY_SUGGESTIONS } from "@/lib/recipe-data";
 import { getIngredientsList } from "@/lib/recipe-utils";
 
@@ -17,8 +17,16 @@ export function PantrySuggestions({
   ).slice(0, 4);
 
   return (
-    <section className="mini-card">
-      <h3>Smart add-ons</h3>
+    <section className="mini-card addon-card">
+      <div className="mini-card-heading">
+        <span className="mini-icon red">
+          <Sparkles size={18} />
+        </span>
+        <div>
+          <h3>Smart add-ons</h3>
+          <p>Boost flavor with one tap.</p>
+        </div>
+      </div>
       <div className="suggestion-list">
         {suggestions.map((suggestion) => (
           <button
@@ -30,7 +38,9 @@ export function PantrySuggestions({
               <strong>{suggestion.name}</strong>
               {suggestion.reason}
             </span>
-            <Plus size={16} />
+            <span className="add-chip" aria-hidden="true">
+              <Plus size={15} />
+            </span>
           </button>
         ))}
       </div>
