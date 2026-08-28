@@ -47,6 +47,7 @@ Express server is needed.
 - 📱 **Responsive UI** for desktop, tablet, and mobile
 - 🎨 **Custom logo support** using `public/logo.png`
 - 🧭 **Multiple web pages** for About, Recipes, Planner, and Tips
+- 🌗 **Full light and dark theme** with localStorage persistence
 
 ---
 
@@ -197,9 +198,11 @@ SmartRecipeAI-main/
     SampleRecipes.tsx
     SavedRecipesView.tsx
     ShoppingList.tsx
+    ThemeScript.tsx
     WeeklyPlanner.tsx
 
   hooks/
+    useTheme.ts
     useRecipeApp.ts
 
   lib/
@@ -207,6 +210,7 @@ SmartRecipeAI-main/
     page-data.ts
     recipe-data.ts
     recipe-utils.ts
+    theme.ts
 
   public/
     favicon.svg
@@ -279,6 +283,7 @@ Successful response:
 | `RecipePreview.tsx` | Generated recipe display and actions |
 | `RecipeSidebar.tsx` | Recent recipes, favorites, and tips |
 | `SavedRecipesView.tsx` | Full saved recipe library page |
+| `ThemeScript.tsx` | Applies saved theme before page render |
 | `WeeklyPlanner.tsx` | Full weekly planner page |
 | `SampleRecipes.tsx` | Example recipe cards for the Tips page |
 | `AppFooter.tsx` | Footer branding |
@@ -293,8 +298,22 @@ The app stores data locally in the user&apos;s browser:
 | --- | --- |
 | `recipeHistory` | Last generated recipes |
 | `favoriteRecipes` | Saved favorite recipes |
+| `smartRecipeTheme` | Selected light or dark theme |
 
 No database is required for the current version.
+
+---
+
+## 🌗 Theme System
+
+SmartRecipe includes a complete light/dark theme implementation:
+
+- Theme toggle in the navigation bar
+- Saved preference in `localStorage`
+- Automatic first-load theme script to reduce flashing
+- `data-theme="light"` and `data-theme="dark"` support on the `<html>` element
+- CSS variables for backgrounds, cards, borders, text, fields, alerts, and shadows
+- Print styles that stay clean regardless of selected theme
 
 ---
 
