@@ -30,6 +30,7 @@ function getWeekDates() {
 export function WeeklyPlanner() {
   const [plan, setPlan] = useState<WeeklyPlan>({});
   const [saved, setSaved] = useState(false);
+  const weekDates = getWeekDates();
 
   useEffect(() => {
     const storedPlan = window.localStorage.getItem(PLANNER_KEY);
@@ -85,7 +86,7 @@ export function WeeklyPlanner() {
         {WEEK_DAYS.map((day, index) => (
           <label className={`weekly-day-card tone-${DAY_TONES[index]}`} key={day}>
             <span>{day}</span>
-            <small>{getWeekDates()[index]}</small>
+            <small>{weekDates[index]}</small>
             <div className="meal-input-shell">
               <PlusCircle size={24} />
               <input
