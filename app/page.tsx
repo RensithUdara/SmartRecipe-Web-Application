@@ -1,6 +1,26 @@
 "use client";
 
+import Image from "next/image";
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import {
+  ArrowRight,
+  BookOpen,
+  CheckCircle2,
+  ChefHat,
+  Clock3,
+  FileText,
+  Heart,
+  History,
+  Home,
+  Leaf,
+  Lightbulb,
+  List,
+  Sparkles,
+  Sun,
+  Trash2,
+  Wand2,
+  Zap,
+} from "lucide-react";
 
 type HistoryItem = {
   ingredients: string;
@@ -131,73 +151,146 @@ export default function Home() {
           <span className="brand-mark">S</span>
           <span>Smart Recipe AI</span>
         </a>
-        <div className="topbar-links">
-          <a href="#generator">Generator</a>
-          <a href="#history">History</a>
+
+        <div className="nav-actions">
+          <a className="nav-pill active" href="#generator">
+            <Home size={17} />
+            <span>Generator</span>
+          </a>
+          <a className="nav-pill" href="#history">
+            <History size={17} />
+            <span>History</span>
+          </a>
+          <button className="icon-button" type="button" aria-label="Theme">
+            <Sun size={18} />
+          </button>
         </div>
       </nav>
 
       <section className="hero-section" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">AI recipe maker</p>
-          <h1>Turn the ingredients you already have into dinner.</h1>
+          <p className="eyebrow">AI Recipe Maker</p>
+          <h1>
+            Turn the ingredients you already have <span>into dinner.</span>
+          </h1>
           <p>
             Enter a few pantry items and get a simple, readable recipe with
             clear steps. Sinhala requests are supported too.
           </p>
+
+          <div className="metric-grid" aria-label="Application highlights">
+            <div className="metric-card red">
+              <FileText size={26} />
+              <div>
+                <strong>10+</strong>
+                <span>Saved recipes</span>
+              </div>
+            </div>
+            <div className="metric-card blue">
+              <Clock3 size={26} />
+              <div>
+                <strong>~1 min</strong>
+                <span>Recipe ideas</span>
+              </div>
+            </div>
+            <div className="metric-card purple">
+              <Sparkles size={26} />
+              <div>
+                <strong>AI Powered</strong>
+                <span>by Gemini</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="hero-stats" aria-label="Application highlights">
-          <div>
-            <strong>10</strong>
-            <span>saved recipes</span>
-          </div>
-          <div>
-            <strong>1 min</strong>
-            <span>recipe ideas</span>
-          </div>
-          <div>
-            <strong>AI</strong>
-            <span>powered by Gemini</span>
+
+        <div className="hero-art" aria-label="Pasta recipe preview">
+          <p className="hand-note">Good Food Happier Days!</p>
+          <Image
+            className="pasta-image"
+            src="/pasta.jpg"
+            width={380}
+            height={380}
+            alt="A bowl of pasta with tomato sauce and herbs"
+            priority
+          />
+          <Leaf className="floating-leaf" size={44} />
+          <span className="accent-mark" aria-hidden="true" />
+
+          <div className="feature-stack">
+            <div>
+              <Leaf size={22} />
+              <span>Simple ingredients</span>
+            </div>
+            <div>
+              <Zap size={22} />
+              <span>Quick recipes</span>
+            </div>
+            <div>
+              <Heart size={22} />
+              <span>Delicious results</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="workspace" id="generator">
-        <div className="generator-panel">
-          <div className="panel-heading">
-            <div>
-              <p className="eyebrow">Recipe workspace</p>
-              <h2>What is in your kitchen?</h2>
-            </div>
-            <span className="ingredient-count">{ingredientCount} items</span>
-          </div>
-
-          <form onSubmit={generateRecipe} className="recipe-form">
-            <label htmlFor="ingredients">Ingredients</label>
-            <textarea
-              id="ingredients"
-              value={ingredients}
-              onChange={(event) => setIngredients(event.target.value)}
-              placeholder="Type ingredients separated by commas, e.g. chicken, onion, rice"
-              rows={5}
-            />
-
-            <div className="quick-picks" aria-label="Quick ingredient picks">
-              {QUICK_INGREDIENTS.map((ingredient) => (
-                <button
-                  key={ingredient}
-                  type="button"
-                  onClick={() => addQuickIngredient(ingredient)}
-                >
-                  {ingredient}
-                </button>
-              ))}
+      <section className="content-grid" id="generator">
+        <div className="main-column">
+          <section className="workspace-card">
+            <div className="section-heading">
+              <div>
+                <p className="section-label">
+                  <ChefHat size={18} />
+                  Recipe Workspace
+                </p>
+                <h2>What is in your kitchen?</h2>
+                <p>
+                  Enter the ingredients you have, and we&apos;ll create a
+                  delicious recipe.
+                </p>
+              </div>
+              <span className="count-pill">
+                <Trash2 size={16} />
+                {ingredientCount} items
+              </span>
             </div>
 
-            <button className="primary-action" type="submit" disabled={isLoading}>
-              {isLoading ? "Creating Recipe..." : "Generate Recipe"}
-            </button>
-          </form>
+            <form onSubmit={generateRecipe} className="recipe-form">
+              <label className="sr-only" htmlFor="ingredients">
+                Ingredients
+              </label>
+              <div className="textarea-shell">
+                <List size={20} />
+                <textarea
+                  id="ingredients"
+                  value={ingredients}
+                  onChange={(event) => setIngredients(event.target.value)}
+                  placeholder="Type ingredients separated by commas, e.g. chicken, onion, rice"
+                  rows={4}
+                />
+              </div>
+
+              <div>
+                <p className="quick-title">Quick picks</p>
+                <div className="quick-picks" aria-label="Quick ingredient picks">
+                  {QUICK_INGREDIENTS.map((ingredient) => (
+                    <button
+                      key={ingredient}
+                      type="button"
+                      onClick={() => addQuickIngredient(ingredient)}
+                    >
+                      {ingredient}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <button className="primary-action" type="submit" disabled={isLoading}>
+                <Wand2 size={19} />
+                <span>{isLoading ? "Creating Recipe..." : "Generate Recipe"}</span>
+                <ArrowRight size={18} />
+              </button>
+            </form>
+          </section>
 
           {isLoading ? (
             <div className="loading-card" role="status">
@@ -208,60 +301,105 @@ export default function Home() {
 
           {error ? <p className="error-message">{error}</p> : null}
 
-          <article className="result-panel" aria-live="polite">
+          <section className="preview-card" aria-live="polite">
+            <p className="section-label green">
+              <BookOpen size={18} />
+              Recipe Preview
+            </p>
             {recipeHtml ? (
-              <div dangerouslySetInnerHTML={{ __html: recipeHtml }} />
+              <article
+                className="recipe-output"
+                dangerouslySetInnerHTML={{ __html: recipeHtml }}
+              />
             ) : (
-              <div className="empty-result">
-                <span>Recipe Preview</span>
-                <h3>Your generated recipe will appear here.</h3>
-                <p>
-                  Add ingredients, choose quick picks, and generate a recipe for
-                  a clean step-by-step cooking plan.
-                </p>
+              <div className="empty-preview">
+                <div>
+                  <h3>Your generated recipe will appear here.</h3>
+                  <p>
+                    Add ingredients, choose quick picks, and generate a recipe
+                    for a clean step-by-step cooking plan.
+                  </p>
+                </div>
+                <div className="preview-sketch" aria-hidden="true">
+                  <span className="pot" />
+                  <span>Good Food Good Mood</span>
+                </div>
               </div>
             )}
-          </article>
+          </section>
         </div>
 
-        <aside className="history-panel" id="history" aria-label="Recent recipes">
-          <div className="panel-heading">
-            <div>
-              <p className="eyebrow">Saved locally</p>
-              <h2>Recent Recipes</h2>
+        <aside className="side-column">
+          <section className="recent-card" id="history">
+            <div className="side-heading">
+              <h2>
+                <Clock3 size={20} />
+                Recent Recipes
+              </h2>
+              <button
+                className="clear-all"
+                type="button"
+                onClick={clearHistory}
+                disabled={history.length === 0}
+              >
+                <Trash2 size={15} />
+                Clear all
+              </button>
             </div>
-            <button
-              className="clear-btn"
-              type="button"
-              onClick={clearHistory}
-              disabled={history.length === 0}
-            >
-              Clear
-            </button>
-          </div>
 
-          {history.length === 0 ? (
-            <div className="empty-history">
-              <h3>No recent recipes yet.</h3>
-              <p>Your last 10 generated recipes will appear here.</p>
-            </div>
-          ) : (
-            <div className="history-list">
-              {history.map((item, index) => (
-                <button
-                  className="history-item"
-                  type="button"
-                  key={`${item.ingredients}-${index}`}
-                  onClick={() => showHistoryItem(item)}
-                >
-                  <span>Recipe {index + 1}</span>
-                  <strong>{item.ingredients}</strong>
-                </button>
-              ))}
-            </div>
-          )}
+            {history.length === 0 ? (
+              <div className="empty-history">
+                <BookOpen size={38} />
+                <h3>No recent recipes yet.</h3>
+                <p>Your last 10 generated recipes will appear here.</p>
+              </div>
+            ) : (
+              <div className="history-list">
+                {history.map((item, index) => (
+                  <button
+                    className="history-item"
+                    type="button"
+                    key={`${item.ingredients}-${index}`}
+                    onClick={() => showHistoryItem(item)}
+                  >
+                    <span>Recipe {index + 1}</span>
+                    <strong>{item.ingredients}</strong>
+                  </button>
+                ))}
+              </div>
+            )}
+          </section>
+
+          <section className="tips-card">
+            <h2>
+              <Lightbulb size={20} />
+              Tips for better recipes
+            </h2>
+            <ul>
+              <li>
+                <CheckCircle2 size={17} />
+                Add 3-8 ingredients for best results
+              </li>
+              <li>
+                <CheckCircle2 size={17} />
+                Be specific, e.g. chicken breast instead of chicken
+              </li>
+              <li>
+                <CheckCircle2 size={17} />
+                You can use Sinhala for ingredient names
+              </li>
+            </ul>
+          </section>
         </aside>
       </section>
+
+      <footer className="footer">
+        <div>
+          <strong>Smart Recipe AI</strong>
+          <span>Cook smarter. Waste less. Eat better.</span>
+        </div>
+        <span>Powered by Gemini</span>
+      </footer>
     </main>
   );
 }
