@@ -116,6 +116,10 @@ a {
   padding-top: 36px;
 }
 
+.planner-page-content {
+  padding-top: 36px;
+}
+
 .topbar {
   display: flex;
   align-items: center;
@@ -555,6 +559,310 @@ a {
 }
 
 .pro-tip-banner p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.planner-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(520px, 760px);
+  gap: 30px;
+  align-items: center;
+  min-height: 380px;
+  padding: 28px 22px 18px;
+}
+
+.planner-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.planner-pill {
+  display: inline-flex;
+  margin: 0 0 22px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--red) 12%, var(--surface-solid));
+  color: var(--red);
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.planner-copy h1 {
+  max-width: 720px;
+  margin: 0;
+  color: var(--heading);
+  font-size: clamp(56px, 5.4vw, 82px);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.planner-copy h1 span {
+  display: block;
+  color: var(--red);
+}
+
+.planner-copy > p:not(.planner-pill),
+.weekly-planner-title p,
+.planner-tip-banner p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.planner-copy > p:not(.planner-pill) {
+  max-width: 720px;
+  margin: 26px 0 0;
+  font-size: 22px;
+}
+
+.planner-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 760px;
+  margin-top: 28px;
+}
+
+.planner-metric {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.planner-metric svg {
+  flex: 0 0 auto;
+  width: 58px;
+  height: 58px;
+  padding: 15px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--red) 10%, var(--surface-solid));
+  color: var(--red);
+}
+
+.planner-metric strong,
+.planner-metric span {
+  display: block;
+}
+
+.planner-metric strong {
+  color: var(--heading);
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.planner-metric span {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.planner-hero-art {
+  min-height: 330px;
+  overflow: hidden;
+}
+
+.planner-hero-art img {
+  width: 100%;
+  height: auto;
+  max-height: 390px;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 60px rgba(125, 77, 34, 0.15));
+}
+
+.weekly-planner-card {
+  margin-top: 28px;
+  padding: 28px 30px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.weekly-planner-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 22px;
+}
+
+.weekly-planner-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.weekly-planner-title > svg {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  padding: 9px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--red) 12%, var(--surface-solid));
+  color: var(--red);
+}
+
+.weekly-planner-title h2 {
+  margin: 0;
+  color: var(--heading);
+  font-size: 29px;
+  line-height: 1.15;
+}
+
+.weekly-planner-title p {
+  margin: 7px 0 0;
+  font-size: 18px;
+}
+
+.weekly-planner-card .planner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.weekly-planner-card .planner-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--red) 10%, var(--surface-solid));
+  color: var(--red);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.weekly-planner-card .planner-actions button:last-child {
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  color: #ffffff;
+  box-shadow: 0 16px 28px color-mix(in srgb, var(--red) 22%, transparent);
+}
+
+.weekly-planner-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.weekly-day-card {
+  display: grid;
+  min-height: 170px;
+  padding: 18px;
+  border: 1px solid var(--day-border, var(--border));
+  border-radius: 12px;
+  background: linear-gradient(180deg, var(--day-bg, var(--surface-soft)), var(--surface-soft));
+}
+
+.weekly-day-card span {
+  color: var(--day-text, var(--red));
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.weekly-day-card small {
+  margin-top: 3px;
+  color: var(--muted-strong);
+  font-size: 15px;
+}
+
+.weekly-day-card.tone-red {
+  --day-bg: color-mix(in srgb, var(--red) 9%, var(--surface-solid));
+  --day-border: color-mix(in srgb, var(--red) 24%, var(--border));
+  --day-text: var(--red);
+}
+
+.weekly-day-card.tone-orange {
+  --day-bg: color-mix(in srgb, var(--orange) 10%, var(--surface-solid));
+  --day-border: color-mix(in srgb, var(--orange) 28%, var(--border));
+  --day-text: color-mix(in srgb, var(--orange) 78%, var(--heading));
+}
+
+.weekly-day-card.tone-green {
+  --day-bg: color-mix(in srgb, var(--green) 10%, var(--surface-solid));
+  --day-border: color-mix(in srgb, var(--green) 28%, var(--border));
+  --day-text: color-mix(in srgb, var(--green) 78%, var(--heading));
+}
+
+.weekly-day-card.tone-blue {
+  --day-bg: color-mix(in srgb, var(--blue) 9%, var(--surface-solid));
+  --day-border: color-mix(in srgb, var(--blue) 26%, var(--border));
+  --day-text: color-mix(in srgb, var(--blue) 76%, var(--heading));
+}
+
+.weekly-day-card.tone-purple {
+  --day-bg: color-mix(in srgb, var(--purple) 10%, var(--surface-solid));
+  --day-border: color-mix(in srgb, var(--purple) 28%, var(--border));
+  --day-text: color-mix(in srgb, var(--purple) 78%, var(--heading));
+}
+
+.meal-input-shell {
+  display: grid;
+  place-items: center;
+  min-height: 74px;
+  margin-top: 16px;
+  padding: 11px;
+  border: 1px dashed var(--day-border, var(--border));
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--surface-solid) 72%, transparent);
+}
+
+.meal-input-shell svg {
+  color: var(--red);
+}
+
+.meal-input-shell input {
+  width: 100%;
+  min-height: 28px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 15px;
+  text-align: center;
+}
+
+.meal-input-shell input::placeholder {
+  color: var(--muted);
+}
+
+.planner-tip-banner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  margin-top: 28px;
+  padding: 24px 34px;
+  border: 1px solid color-mix(in srgb, var(--orange) 30%, var(--border));
+  border-radius: 18px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--orange) 10%, var(--surface-solid)), var(--surface));
+  box-shadow: var(--shadow);
+}
+
+.planner-tip-icon {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  place-items: center;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--orange) 16%, var(--surface-solid));
+  color: var(--orange);
+}
+
+.planner-tip-banner h2 {
+  margin: 0 0 6px;
+  color: var(--orange);
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.planner-tip-banner p {
   margin: 0;
   font-size: 18px;
 }
@@ -1822,6 +2130,7 @@ button:disabled {
   .hero-section,
   .about-hero,
   .tips-hero,
+  .planner-hero,
   .content-grid {
     grid-template-columns: 1fr;
   }
@@ -1862,7 +2171,8 @@ button:disabled {
   }
 
   .tip-card-grid,
-  .recipe-example-grid {
+  .recipe-example-grid,
+  .weekly-planner-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1872,6 +2182,18 @@ button:disabled {
 
   .tips-art img {
     max-height: 300px;
+  }
+
+  .planner-hero-art {
+    min-height: 280px;
+  }
+
+  .planner-hero-art img {
+    max-height: 330px;
+  }
+
+  .planner-metrics {
+    max-width: none;
   }
 
   .story-note {
@@ -1935,12 +2257,21 @@ button:disabled {
     padding-top: 20px;
   }
 
+  .planner-page-content {
+    padding-top: 20px;
+  }
+
   .about-hero {
     min-height: auto;
     padding: 18px 8px 10px;
   }
 
   .tips-hero {
+    min-height: auto;
+    padding: 18px 8px 10px;
+  }
+
+  .planner-hero {
     min-height: auto;
     padding: 18px 8px 10px;
   }
@@ -1953,12 +2284,19 @@ button:disabled {
     font-size: 43px;
   }
 
+  .planner-copy h1 {
+    font-size: 45px;
+  }
+
   .about-copy > p:not(.about-pill) {
     font-size: 17px;
   }
 
   .tips-copy > p:not(.tips-pill),
+  .planner-copy > p:not(.planner-pill),
   .examples-header p,
+  .weekly-planner-title p,
+  .planner-tip-banner p,
   .pro-tip-banner p {
     font-size: 16px;
   }
@@ -1977,6 +2315,15 @@ button:disabled {
     max-height: 220px;
   }
 
+  .planner-art,
+  .planner-hero-art {
+    min-height: 210px;
+  }
+
+  .planner-hero-art img {
+    max-height: 240px;
+  }
+
   .hero-copy h1 {
     font-size: 45px;
   }
@@ -1991,6 +2338,8 @@ button:disabled {
   .about-feature-grid,
   .tip-card-grid,
   .recipe-example-grid,
+  .weekly-planner-grid,
+  .planner-metrics,
   .recipe-library-grid,
   .planner-grid,
   .option-grid {
@@ -2014,10 +2363,12 @@ button:disabled {
   }
 
   .examples-header,
+  .weekly-planner-heading,
+  .planner-tip-banner,
   .pro-tip-banner {
     display: grid;
     grid-template-columns: 1fr;
-    align-items: start;
+    align-items: flex-start;
   }
 
   .examples-header {
@@ -2062,6 +2413,35 @@ button:disabled {
   .pro-tip-banner {
     gap: 18px;
     padding: 22px;
+  }
+
+  .planner-metric {
+    min-height: 62px;
+  }
+
+  .weekly-planner-card {
+    margin-top: 20px;
+    padding: 18px;
+  }
+
+  .weekly-planner-card .planner-actions {
+    justify-content: flex-start;
+  }
+
+  .weekly-planner-card .planner-actions button {
+    flex: 1 1 150px;
+    min-height: 48px;
+    padding: 0 18px;
+  }
+
+  .weekly-day-card {
+    min-height: 146px;
+    padding: 16px;
+  }
+
+  .planner-tip-banner {
+    gap: 16px;
+    padding: 20px;
   }
 
   .benefit-list {
