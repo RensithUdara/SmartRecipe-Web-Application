@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { Download, Heart, Search, Trash2 } from "lucide-react";
+import { Clock3, Download, Heart, Search, Sparkles, Trash2 } from "lucide-react";
 import { FAVORITES_KEY, HISTORY_KEY } from "@/lib/recipe-data";
 import { readLocalList, writeLocalList } from "@/lib/local-recipes";
 import { copyRecipe, downloadRecipe } from "@/lib/recipe-utils";
@@ -24,7 +25,9 @@ export function SavedRecipesView() {
   const filteredRecipes = useMemo(
     () =>
       recipes.filter((recipe) =>
-        recipe.ingredients.toLowerCase().includes(query.toLowerCase()),
+        `${recipe.ingredients} ${recipe.options.cuisine} ${recipe.options.mealType}`
+          .toLowerCase()
+          .includes(query.toLowerCase()),
       ),
     [query, recipes],
   );
@@ -54,14 +57,15 @@ export function SavedRecipesView() {
   }
 
   return (
-    <section className="library-panel">
-      <div className="library-toolbar">
-        <div className="tab-group" role="tablist" aria-label="Recipe library">
+    <section className="recipes-library-panel">
+      <div className="recipes-library-toolbar">
+        <div className="recipe-tab-group" role="tablist" aria-label="Recipe library">
           <button
             className={activeTab === "history" ? "active" : ""}
             type="button"
             onClick={() => setActiveTab("history")}
           >
+            <Clock3 size={18} />
             History
           </button>
           <button
@@ -69,45 +73,50 @@ export function SavedRecipesView() {
             type="button"
             onClick={() => setActiveTab("favorites")}
           >
+            <Heart size={18} />
             Favorites
           </button>
         </div>
 
-        <label className="search-box">
-          <Search size={17} />
+        <label className="recipes-search-box">
+          <Search size={18} />
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search ingredients"
+            placeholder="Search recipes, ingredients, or dishes..."
             type="search"
           />
         </label>
 
-        <button className="clear-all solid" type="button" onClick={clearActiveList}>
-          <Trash2 size={15} />
+        <button className="recipes-clear-button" type="button" onClick={clearActiveList}>
+          <Trash2 size={16} />
           Clear
         </button>
       </div>
 
       {filteredRecipes.length === 0 ? (
-        <div className="empty-library">
-          <Heart size={44} />
+        <div className="recipes-empty-state">
+          <Heart size={50} />
           <h2>No saved recipes found.</h2>
           <p>Generate recipes from the home page and save your favorites here.</p>
+          <Link className="primary-action compact-action" href="/">
+            <Sparkles size={16} />
+            Generate Your First Recipe
+          </Link>
         </div>
       ) : (
-        <div className="recipe-library-grid">
+        <div className="recipes-card-grid">
           {filteredRecipes.map((recipe) => (
-            <article className="saved-recipe-card" key={recipe.id}>
+            <article className="recipe-library-card" key={recipe.id}>
               <div>
                 <span>{recipe.options.mealType}</span>
                 <h2>{recipe.ingredients}</h2>
                 <p>
-                  {recipe.options.servings} servings · {recipe.options.maxTime} ·{" "}
+                  {recipe.options.servings} servings | {recipe.options.maxTime} |{" "}
                   {recipe.options.cuisine}
                 </p>
               </div>
-              <div className="saved-actions">
+              <div className="recipe-library-actions">
                 <button type="button" onClick={() => copyRecipe(recipe.recipe)}>
                   Copy
                 </button>
