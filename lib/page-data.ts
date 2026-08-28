@@ -1,6 +1,7 @@
 import {
   CalendarDays,
   ClipboardList,
+  FileText,
   Heart,
   Leaf,
   ListChecks,
@@ -45,7 +46,7 @@ export const FEATURE_CARDS = [
 export const COOKING_TIPS = [
   {
     title: "Use specific ingredients",
-    description: "Chicken breast, red onion, basmati rice, and fresh tomato give better results than broad ingredient names.",
+    description: "Chicken breast, not chicken. Basmati rice, not rice. Specific names give better results.",
     icon: Leaf,
   },
   {
@@ -55,8 +56,8 @@ export const COOKING_TIPS = [
   },
   {
     title: "Mention diet needs",
-    description: "Vegetarian, dairy free, high protein, spicy, and low carb requests change the recipe direction.",
-    icon: ClipboardList,
+    description: "Vegetarian, dairy free, high protein, spicy, or low carb can change the recipe direction.",
+    icon: FileText,
   },
   {
     title: "Save good recipes",
@@ -71,18 +72,21 @@ export const SAMPLE_RECIPES = [
     time: "25 min",
     tags: ["Italian", "Easy", "Dinner"],
     ingredients: "pasta, tomato, garlic, cheese, basil",
+    image: "/pasta.jpg",
   },
   {
     title: "Sri Lankan Coconut Rice Bowl",
     time: "30 min",
     tags: ["Sri Lankan", "Comfort", "Lunch"],
     ingredients: "rice, coconut milk, onion, chili, egg",
+    image: "/about-bg.png",
   },
   {
     title: "Quick Egg Fried Rice",
     time: "15 min",
     tags: ["Quick", "Budget", "Dinner"],
     ingredients: "rice, egg, soy sauce, onion, carrot",
+    image: "/tips-bg.png",
   },
 ];
 
