@@ -72,21 +72,21 @@ export const SAMPLE_RECIPES = [
     time: "25 min",
     tags: ["Italian", "Easy", "Dinner"],
     ingredients: "pasta, tomato, garlic, cheese, basil",
-    image: "/pasta.jpg",
+    image: "/01.png",
   },
   {
     title: "Sri Lankan Coconut Rice Bowl",
     time: "30 min",
     tags: ["Sri Lankan", "Comfort", "Lunch"],
     ingredients: "rice, coconut milk, onion, chili, egg",
-    image: "/about-bg.png",
+    image: "/03.png",
   },
   {
     title: "Quick Egg Fried Rice",
     time: "15 min",
     tags: ["Quick", "Budget", "Dinner"],
     ingredients: "rice, egg, soy sauce, onion, carrot",
-    image: "/tips-bg.png",
+    image: "/02.png",
   },
 ];
 
