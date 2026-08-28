@@ -1,10 +1,13 @@
+import Image from "next/image";
 import { History, Home, Sun } from "lucide-react";
 
 export function AppNav() {
   return (
     <nav className="topbar" aria-label="Main navigation">
       <a className="brand" href="#top" aria-label="Smart Recipe AI home">
-        <span className="brand-mark">S</span>
+        <span className="brand-mark image-mark">
+          <Image src="/logo.png" width={40} height={40} alt="" priority />
+        </span>
         <span>Smart Recipe AI</span>
       </a>
 
