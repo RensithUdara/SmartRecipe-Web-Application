@@ -1,27 +1,43 @@
+import { CheckCircle2, Lightbulb } from "lucide-react";
+import { AboutHero } from "@/components/AboutHero";
 import { AppFooter } from "@/components/AppFooter";
 import { AppNav } from "@/components/AppNav";
 import { FeatureGrid } from "@/components/FeatureGrid";
-import { PageHeader } from "@/components/PageHeader";
+
+const BENEFITS = ["Less food waste", "Healthier choices", "Happier meals"];
 
 export default function AboutPage() {
   return (
-    <main className="page-shell">
+    <main className="page-shell about-page">
       <AppNav />
-      <div className="page-content">
-        <PageHeader
-          eyebrow="About SmartRecipe"
-          title="A smarter way to cook from what you already have."
-          description="SmartRecipe helps home cooks reduce waste, plan faster, and turn everyday pantry ingredients into useful meal ideas."
-        />
-        <FeatureGrid />
-        <section className="story-panel">
-          <h2>Why this app exists</h2>
-          <p>
-            Most recipe apps start with a finished dish. SmartRecipe starts with
-            your kitchen. Add what you have, choose your preferences, and let the
-            app suggest a practical recipe that fits your time, meal type, and
-            taste.
-          </p>
+      <div className="page-content about-content">
+        <AboutHero />
+        <FeatureGrid variant="about" />
+
+        <section className="about-story-panel">
+          <div className="story-icon">
+            <Lightbulb size={36} />
+          </div>
+
+          <div className="story-copy">
+            <h2>Why this app exists</h2>
+            <p>
+              We believe good food should be simple, accessible, and waste-free.
+              SmartRecipe helps you make the most of what you have for a
+              healthier you and a more sustainable tomorrow.
+            </p>
+          </div>
+
+          <ul className="benefit-list" aria-label="SmartRecipe benefits">
+            {BENEFITS.map((benefit) => (
+              <li key={benefit}>
+                <CheckCircle2 size={18} />
+                {benefit}
+              </li>
+            ))}
+          </ul>
+
+          <p className="story-note">Good Food Better You!</p>
         </section>
       </div>
       <AppFooter />
