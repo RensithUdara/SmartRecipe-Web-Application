@@ -1,18 +1,14 @@
 import { AppFooter } from "@/components/AppFooter";
 import { AppNav } from "@/components/AppNav";
-import { PageHeader } from "@/components/PageHeader";
+import { RecipesHero } from "@/components/RecipesHero";
 import { SavedRecipesView } from "@/components/SavedRecipesView";
 
 export default function RecipesPage() {
   return (
-    <main className="page-shell">
+    <main className="page-shell recipes-page">
       <AppNav />
-      <div className="page-content">
-        <PageHeader
-          eyebrow="Recipe Library"
-          title="Your saved recipes in one place."
-          description="Browse recent generations, search by ingredients, download recipes, and manage favorites saved in your browser."
-        />
+      <div className="page-content recipes-page-content">
+        <RecipesHero />
         <SavedRecipesView />
       </div>
       <AppFooter />
