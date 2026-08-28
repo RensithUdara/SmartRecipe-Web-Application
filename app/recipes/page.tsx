@@ -7,12 +7,14 @@ export default function RecipesPage() {
   return (
     <main className="page-shell">
       <AppNav />
-      <PageHeader
-        eyebrow="Recipe Library"
-        title="Your saved recipes in one place."
-        description="Browse recent generations, search by ingredients, download recipes, and manage favorites saved in your browser."
-      />
-      <SavedRecipesView />
+      <div className="page-content">
+        <PageHeader
+          eyebrow="Recipe Library"
+          title="Your saved recipes in one place."
+          description="Browse recent generations, search by ingredients, download recipes, and manage favorites saved in your browser."
+        />
+        <SavedRecipesView />
+      </div>
       <AppFooter />
     </main>
   );
