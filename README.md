@@ -48,6 +48,7 @@ Express server is needed.
 - 🎨 **Custom logo support** using `public/logo.png`
 - 🧭 **Multiple web pages** for About, Recipes, Planner, and Tips
 - 🌗 **Full light and dark theme** with localStorage persistence
+- 🧱 **Full footer section** that stays at the bottom on short pages
 
 ---
 
