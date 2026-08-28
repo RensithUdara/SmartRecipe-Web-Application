@@ -9,6 +9,7 @@ export const DEFAULT_OPTIONS: RecipeOptions = {
   cuisine: "Any cuisine",
   diet: "No preference",
   difficulty: "Easy",
+  mealType: "Dinner",
 };
 
 export const QUICK_INGREDIENTS = [
@@ -45,3 +46,14 @@ export const DIET_OPTIONS = [
 export const TIME_OPTIONS = ["15 minutes", "30 minutes", "45 minutes", "1 hour"];
 
 export const DIFFICULTY_OPTIONS = ["Easy", "Medium", "Creative"];
+
+export const MEAL_TYPE_OPTIONS = ["Breakfast", "Lunch", "Dinner", "Snack"];
+
+export const PANTRY_SUGGESTIONS = [
+  { name: "Garlic", reason: "adds depth" },
+  { name: "Lime", reason: "brightens flavors" },
+  { name: "Chili flakes", reason: "adds heat" },
+  { name: "Coconut milk", reason: "makes it creamy" },
+  { name: "Soy sauce", reason: "adds umami" },
+  { name: "Fresh herbs", reason: "finishes dishes well" },
+];
