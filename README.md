@@ -157,6 +157,12 @@ npm run lint
 
 Runs ESLint for code quality checks.
 
+```bash
+npm run test:e2e
+```
+
+Runs Playwright browser tests, including the light/dark theme verification.
+
 ---
 
 ## 📁 Project Structure
@@ -225,6 +231,7 @@ SmartRecipeAI-main/
   eslint.config.mjs
   next.config.mjs
   package.json
+  playwright.config.ts
   tsconfig.json
 ```
 
@@ -314,6 +321,7 @@ SmartRecipe includes a complete light/dark theme implementation:
 - `data-theme="light"` and `data-theme="dark"` support on the `<html>` element
 - CSS variables for backgrounds, cards, borders, text, fields, alerts, and shadows
 - Print styles that stay clean regardless of selected theme
+- Playwright test coverage for switching, persistence, and computed color changes
 
 ---
 
