@@ -4,6 +4,7 @@ export type RecipeOptions = {
   cuisine: string;
   diet: string;
   difficulty: string;
+  mealType: string;
 };
 
 export type RecipeRecord = {
@@ -17,4 +18,9 @@ export type RecipeRecord = {
 export type RecipeResponse = {
   recipe?: string;
   detail?: string;
+};
+
+export type PantrySuggestion = {
+  name: string;
+  reason: string;
 };
