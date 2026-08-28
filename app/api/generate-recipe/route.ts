@@ -1,7 +1,10 @@
+import { DEFAULT_OPTIONS } from "@/lib/recipe-data";
+import type { RecipeOptions } from "@/types/recipe";
 import { NextRequest, NextResponse } from "next/server";
 
 type GenerateRecipeBody = {
   ingredients?: unknown;
+  options?: Partial<RecipeOptions>;
 };
 
 const GEMINI_MODEL = process.env.GEMINI_MODEL ?? "gemini-3.6-flash";
@@ -38,6 +41,10 @@ export async function POST(request: NextRequest) {
   const ingredients = Array.isArray(body.ingredients)
     ? body.ingredients.filter((item): item is string => typeof item === "string")
     : [];
+  const options = {
+    ...DEFAULT_OPTIONS,
+    ...(body.options ?? {}),
+  };
 
   if (ingredients.length === 0) {
     return NextResponse.json(
@@ -48,8 +55,19 @@ export async function POST(request: NextRequest) {
 
   const prompt = `
 Create a short, delicious recipe using these ingredients: ${ingredients.join(", ")}.
+Servings: ${options.servings}.
+Maximum cooking time: ${options.maxTime}.
+Preferred cuisine: ${options.cuisine}.
+Diet preference: ${options.diet}.
+Difficulty level: ${options.difficulty}.
 IMPORTANT RULE: If the ingredients are provided in Sinhala, or if the user explicitly asks in Sinhala, write the entire recipe in Sinhala. Otherwise, write it in English.
-Keep it simple and format it clearly.
+Format the answer with:
+**Recipe Name**
+**Time and Servings**
+**Ingredients Used**
+**Steps**
+**Tip**
+Keep it practical, clear, and friendly.
 `;
 
   const geminiResponse = await fetch(
