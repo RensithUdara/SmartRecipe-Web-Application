@@ -1,19 +1,17 @@
 import { AppFooter } from "@/components/AppFooter";
 import { AppNav } from "@/components/AppNav";
-import { PageHeader } from "@/components/PageHeader";
+import { PlannerHero } from "@/components/PlannerHero";
+import { PlannerTipBanner } from "@/components/PlannerTipBanner";
 import { WeeklyPlanner } from "@/components/WeeklyPlanner";
 
 export default function PlannerPage() {
   return (
-    <main className="page-shell">
+    <main className="page-shell planner-page">
       <AppNav />
-      <div className="page-content">
-        <PageHeader
-          eyebrow="Meal Planner"
-          title="Plan a simple week of meals."
-          description="Keep a lightweight weekly meal plan in your browser and use generated recipes to guide your cooking."
-        />
+      <div className="page-content planner-page-content">
+        <PlannerHero />
         <WeeklyPlanner />
+        <PlannerTipBanner />
       </div>
       <AppFooter />
     </main>
