@@ -103,6 +103,11 @@ a {
   padding: 18px 0 22px;
 }
 
+.page-content {
+  flex: 1 0 auto;
+  padding-bottom: clamp(42px, 6vw, 88px);
+}
+
 .topbar {
   display: flex;
   align-items: center;
@@ -1225,7 +1230,7 @@ button:disabled {
   display: grid;
   gap: 18px;
   margin-top: auto;
-  padding: 26px 28px 22px;
+  padding: 34px 36px 28px;
   border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--surface);
@@ -1382,6 +1387,10 @@ button:disabled {
     padding-top: 9px;
   }
 
+  .page-content {
+    padding-bottom: 34px;
+  }
+
   .topbar,
   .page-header,
   .section-heading,
@@ -1495,7 +1504,7 @@ button:disabled {
   }
 
   .footer {
-    padding: 20px;
+    padding: 24px 20px;
   }
 }
 
