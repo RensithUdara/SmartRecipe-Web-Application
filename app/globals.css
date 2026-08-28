@@ -1405,6 +1405,15 @@ button:disabled {
   .insight-grid {
     grid-template-columns: 1fr;
   }
+
+  .feature-grid,
+  .recipe-library-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .planner-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 760px) {
@@ -1482,9 +1491,25 @@ button:disabled {
 
   .section-heading,
   .side-heading,
-  .empty-preview {
+  .empty-preview,
+  .page-header,
+  .library-toolbar {
     grid-template-columns: 1fr;
     display: grid;
+  }
+
+  .feature-grid,
+  .recipe-library-grid,
+  .planner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    padding: 36px 10px 24px;
+  }
+
+  .page-header h1 {
+    font-size: 40px;
   }
 
   .section-heading h2 {
