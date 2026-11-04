@@ -79,14 +79,14 @@ export const SAMPLE_RECIPES = [
     time: "30 min",
     tags: ["Sri Lankan", "Comfort", "Lunch"],
     ingredients: "rice, coconut milk, onion, chili, egg",
-    image: "/03.png",
+    image: "/02.png",
   },
   {
     title: "Quick Egg Fried Rice",
     time: "15 min",
     tags: ["Quick", "Budget", "Dinner"],
     ingredients: "rice, egg, soy sauce, onion, carrot",
-    image: "/02.png",
+    image: "/03.png",
   },
 ];
 
