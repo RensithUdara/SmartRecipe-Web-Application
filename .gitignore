@@ -11,3 +11,6 @@ yarn-debug.log*
 yarn-error.log*
 playwright-report
 test-results
+.env.*
+.env.local
+.env.production
